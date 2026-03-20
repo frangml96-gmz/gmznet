@@ -221,13 +221,23 @@
 
 
 
+
 <script>
 function consultarStatus() {
     const user = document.getElementById('user_input').value;
     const pass = document.getElementById('pass_input').value;
-    // Construimos la URL de login directo
-    const url = "https://gmzfichas.com" + user + "&password=" + pass + "&dst=https://gmzfichas.com";
-    window.location.href = url;
+
+    if (!user) {
+        alert("Por favor, ingresa tu usuario");
+        return;
+    }
+
+    // Nota: La mayoría de los hotspots usan 'username' y 'password' como nombres de campo
+    // Intentaremos enviarlos por la URL para forzar el login y redirección al status
+    const baseUrl = "http://gmzfichas.com/login"; 
+    const query = `?username=${encodeURIComponent(user)}&password=${encodeURIComponent(pass)}&dst=http://gmzfichas.com/status`;
+    
+    window.location.href = baseUrl + query;
 }
 </script>
 
@@ -243,20 +253,18 @@ function consultarStatus() {
             <h3>Acceso a Clientes</h3>
             <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem;">Ingresa tus datos para ver tu tiempo</p>
             
-    <form action="https://gmzfichas.com" method="post">
-    <input type="hidden" name="dst" value="https://gmzfichas.com">
-                <div class="input-group">
-                    <label>Usuario</label>
-                   <input type="text" id="user_input" placeholder="Usuario">
-                </div>
-                <div class="input-group">
-                    <label>Contraseña</label>
-                   <input type="password" id="pass_input" placeholder="Contraseña">
-                </div>
-                <button type="button" onclick="consultarStatus()" class="btn2 btn2-primary" style="width: 100%; margin-top: 10px;">
-               
-                    Consultar Ahora
-                </button>
+            <form action="http://gmzfichas.com" method="get">
+            <div class="input-group">
+    <label>Usuario / PIN</label>
+    <input type="text" id="user_input" name="username" placeholder="Ingresa tu ficha">
+</div>
+<div class="input-group">
+    <label>Contraseña (si aplica)</label>
+    <input type="password" id="pass_input" name="password" placeholder="Contraseña">
+</div>
+<button type="button" onclick="consultarStatus()" class="btn2 btn2-primary" style="width: 100%; margin-top: 10px;">
+    Consultar Ahora
+</button>
             </form>
                 <p style="font-size: 0.7rem; margin-top: 15px; color: #999;">
         *Si no eres cliente, te redirigirá a la página de bienvenida.
