@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMZ Group | Internet & Trámites</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #4f46e5;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+
+        header {
+            background: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+        .container { max-width: 1000px; margin: -2rem auto 2rem; padding: 0 1.5rem; }
+
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+
+
+        .btn-status { background: var(--accent); width: 100%; margin-top: 2rem; }
+        .btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+        .info-section { padding: 3rem 1.5rem; text-align: center; }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+  .btn1 {
+           margin-top: 1.5rem;   padding: 14px 32px; border-radius: 50px; font-weight: 700;
+            text-decoration: none; display: inline-block; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer; border: none; font-size: 1rem;   
+        }
+
+    
+
+    .btn1-main { background: var(--accent); color: white; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); }
+        .btn1-white { background: white; color: var(--primary); margin-left: 15px; }
+        .btn1:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+
+        .price-tag {
+            display: inline-block;
+            background: #e0e7ff;
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+      /* Main Buttons */
+        .btn2 {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn2-primary { background: var(--primary); color: white; }
+        .btn2-outline { border: 2px solid white; color: white; background: transparent; margin-left: 10px; }
+        .btn2:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        /* MODAL STYLES */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(5px);
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 2rem;
+            border-radius: 24px;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            text-align: center;
+        }
+
+        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+
+        .input-group { margin-bottom: 1rem; text-align: left; }
+        .input-group label { font-size: 0.8rem; font-weight: 700; color: var(--dark); display: block; margin-bottom: 5px; }
+        .input-group input { 
+            width: 100%; padding: 12px; border-radius: 10px; 
+            border: 1px solid #e2e8f0; background: #f8fafc;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h3 style="color: var(--primary);">GMZ Group Network Company</h2>
+    </header>
+
+    <section class="hero">
+        <h1>Conexión sin Límites <br> en Adan's Net</h1>
+            <p>Venta de internet por fichas de alta estabilidad y Gestionamos tus tramites digitales rápidos y segruos. ¡Conéctate hoy mismo!</p>
+        
+        
+        <div>
+            <a href="#servicios" class="btn1 btn1-main">Nuestros Servicios</a>
+            <button onclick="openModal()" class="btn1 btn1-white">Consultar Saldo</button>
+        </div>
+
+    </section>
+
+    <div class="container">
+        <div class="services">
+            <!-- Servicio 1: Internet -->
+            <div class="card">
+                <div class="icon"><i class="fas fa-ticket-alt"></i></div>
+                <span class="price-tag">DESDE $5 PESOS</span>
+                <h3>Internet por Fichas</h3>
+                <p>Navega a alta velocidad. Compra tu ficha por tiempo (hora, día o mes) y conéctate al instante.</p>
+                <a href="#" class="btn">Ver Precios</a>
+            </div>
+
+            <!-- Servicio 2: Trámites -->
+            <div class="card">
+                <div class="icon"><i class="fas fa-file-invoice"></i></div>
+                <span class="price-tag">RÁPIDO Y SEGURO</span>
+                <h3>Trámites Digitales</h3>
+                <p>CURP, Actas de nacimiento, RFC, impresiones y más. Nosotros lo hacemos por ti.</p>
+                <a href="https://wa.me" class="btn" style="background: #25d366;">
+                    <i class="fab fa-whatsapp"></i> Consultar
+                </a>
+            </div>
+                  <!-- Servicio 2: impresiones -->
+   <div class="card">
+                <div class="icon"><i class="fas fa-file-invoice"></i></div>
+                <span class="price-tag">RÁPIDO Y SEGURO</span>
+                <h3>Impresiones Copias y Fotografias</h3>
+                <p>Infantil Color y blanco/negro de alta calidad. Nosotros lo hacemos por ti.</p>
+                <a href="https://wa.me" class="btn" style="background: #25d366;">
+                    <i class="fab fa-whatsapp"></i> Consultar
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <!-- MODAL DE CONSULTA -->
+    <div class="modal-overlay" id="modalStatus">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div style="color: var(--primary); font-size: 2.5rem; margin-bottom: 10px;">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h3>Acceso a Clientes</h3>
+            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem;">Ingresa tus datos para ver tu tiempo</p>
+            
+            <form action="http://gmzfichas.com" method="get">
+                <div class="input-group">
+                    <label>Usuario</label>
+                    <input type="text" name="username" placeholder="Tu usuario" required>
+                </div>
+                <div class="input-group">
+                    <label>Contraseña</label>
+                    <input type="password" name="password" placeholder="Tu contraseña">
+                </div>
+                <button type="submit" class="btn2 btn2-primary" style="width: 100%; margin-top: 10px;">
+                    Consultar Ahora
+                </button>
+            </form>
+                <p style="font-size: 0.7rem; margin-top: 15px; color: #999;">
+        *Si no eres cliente, te redirigirá a la página de bienvenida.
+    </p>
+        </div>
+    </div>
+
+    <section class="info-section">
+        <h3>¿Por qué elegirnos?</h3>
+        <p style="color: #64748b; max-width: 700px; margin: 1rem auto;">
+            Ofrecemos una conexión estable para que nunca te quedes desconectado y atención personalizada en cada uno de tus servicios digitales.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 GMZ Group Network Company</p>
+        <p style="opacity: 0.6; font-size: 0.7rem; margin-top: 10px;">Impulsando la conectividad digital</p>
+    </footer>
+
+
+        <script>
+        const modal = document.getElementById('modalStatus');
+
+        function openModal() {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Bloquea scroll
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Libera scroll
+        }
+
+        // Cerrar si hace clic fuera del cuadrito blanco
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
