@@ -221,6 +221,18 @@
 
 
 
+<script>
+function consultarStatus() {
+    const user = document.getElementById('user_input').value;
+    const pass = document.getElementById('pass_input').value;
+    // Construimos la URL de login directo
+    const url = "http://gmzfichas.com" + user + "&password=" + pass + "&dst=http://gmzfichas.com";
+    window.location.href = url;
+}
+</script>
+
+
+
     <!-- MODAL DE CONSULTA -->
     <div class="modal-overlay" id="modalStatus">
         <div class="modal-content">
@@ -234,13 +246,14 @@
             <form action="http://gmzfichas.com" method="get">
                 <div class="input-group">
                     <label>Usuario</label>
-                    <input type="text" name="username" placeholder="Tu usuario" required>
+                   <input type="text" id="user_input" placeholder="Usuario">
                 </div>
                 <div class="input-group">
                     <label>Contraseña</label>
-                    <input type="password" name="password" placeholder="Tu contraseña">
+                   <input type="password" id="pass_input" placeholder="Contraseña">
                 </div>
-                <button type="submit" class="btn2 btn2-primary" style="width: 100%; margin-top: 10px;">
+                <button type="button" onclick="consultarStatus()" class="btn2 btn2-primary" style="width: 100%; margin-top: 10px;">
+               
                     Consultar Ahora
                 </button>
             </form>
