@@ -351,6 +351,35 @@
         }
     
     </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Capturamos la URL completa
+    const params = new URLSearchParams(window.location.search);
+    
+    // 2. Extraemos los datos que mandó el MikroTik
+    const usuario = params.get('user');
+    const tiempo = params.get('time');
+    const subida = params.get('up');
+    const bajada = params.get('down');
 
+    // 3. SI EXISTEN DATOS, HACEMOS MAGIA
+    if (usuario || tiempo) {
+        // Abrimos el modal de Adan's Net
+        openModal(); 
+        
+        // Cambiamos el texto del modal con los datos reales
+        // Asegúrate de tener estos IDs en tu HTML o cámbialos por los tuyos
+        if(document.getElementById('welcome-user')) {
+            document.getElementById('welcome-user').innerText = "Bienvenido, " + usuario;
+        }
+        if(document.getElementById('stat-time')) {
+            document.getElementById('stat-time').innerText = tiempo;
+        }
+        
+        // Limpiamos la URL para que si el usuario refresca, no se abra el modal solo
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+});
+</script>
 </body>
 </html>
